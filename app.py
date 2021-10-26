@@ -26,3 +26,26 @@ def signup():
     return jsonify(request.get_json()), 200
 
 
+@app.route("/login", methods = ["POST"])
+def login():
+    data = request.get_json()
+    nickname = data["nickname"]
+    password = data["password"]
+    for user in users:
+        if user.nickname == nickname:
+            if user.password == password:
+                return jsonify({
+                    "first_name" : user.first_name,
+                    "last_name" : user.last_name,
+                    "date" : user.date,
+                    "gender" : user.gender,
+                    "nickname" : user.nickname,
+                    "phone" : user.phone
+                }), 200
+            else:
+                return jsonify({
+                    "message" : "bad credentials"
+                }), 400
+    return jsonify({
+        "message": "user not found"
+    }), 400                
