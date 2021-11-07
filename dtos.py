@@ -1,9 +1,22 @@
 class User:
-    def __init__(self,first_name, last_name, date, gender, nickname, password, phone):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.date = date
+    def __init__(self,name,gender, username, password, email):
+        self.name = name
         self.gender = gender
-        self.nickname = nickname
+        self.username = username
         self.password = password
-        self.phone = phone
+        self.email = email
+
+class Image:
+    def __init__(self, url, date, category ):
+        self.url = url
+        self.date = date
+        self.category = category
+
+class Video:
+    def __init__(self, url, date, category ):
+        self.url = url
+        self.date = date
+        self.category = category
+
+
+            
